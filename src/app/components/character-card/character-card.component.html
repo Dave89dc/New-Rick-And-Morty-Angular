@@ -1,0 +1,15 @@
+<mat-card *ngIf="character" class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{character.name}}</mat-card-title>
+        <mat-card-subtitle>{{character.species}}</mat-card-subtitle>
+        <img mat-card-lg-image src="{{character.image}}" >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+        <span>Species: </span><span>{{character.species}}</span><br>
+        <span>Status: </span><span>{{character.status}}</span><br>
+        <span>Origin: </span><span>{{character.origin.name}}</span><br>
+        <span>Location: </span><span>{{character.location.name}}</span><br>
+    </mat-card-content>
+</mat-card>

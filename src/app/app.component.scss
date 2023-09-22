@@ -1,0 +1,21 @@
+.title{
+    margin: 0px;
+    font-size: 40px;
+}
+
+.light-or-dark-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    cursor: pointer;
+}
+
+.icon{
+    margin: 0px;
+    padding: 0px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

@@ -1,0 +1,18 @@
+<div class="title-box">
+    <h1 class="title-page">Rick & Morty Characters</h1>
+</div>
+<div class="characters-box">
+    <app-character-card *ngFor="let character of charactersPage" [character]="character"></app-character-card>
+</div>
+<mat-paginator #paginator
+               class="demo-paginator"
+               (page)="handlePageEvent($event)"
+               [length]="characters.length"
+               [pageSize]="pageSize"
+               [disabled]="disabled"
+               [showFirstLastButtons]="showFirstLastButtons"
+               [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+               [hidePageSize]="hidePageSize"
+               [pageIndex]="pageIndex"
+               aria-label="Select page">
+</mat-paginator>

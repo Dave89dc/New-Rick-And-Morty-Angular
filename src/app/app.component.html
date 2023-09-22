@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <span class="title">Rick & Morty</span>
+  <span class="example-spacer"></span>
+  <button (click)="darkOrLight()" mat-icon-button class="light-or-dark-btn" aria-label="Light or Dark Mode" title="{{isDarkMode ? 'Dark' : 'Light'}}">
+    <mat-icon class="icon">{{ isDarkMode ? 'brightness_2' : 'wb_sunny' }}</mat-icon>
+  </button>
+</mat-toolbar>
+<app-home></app-home>
