@@ -30,31 +30,32 @@ export class CharactersPageComponent implements OnInit {
     this.length = e.length;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
+    this.charactersPageFromData(this.pageIndex);
   }
 
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-  }
+  // setPageSizeOptions(setPageSizeOptionsInput: string) {
+  //   if (setPageSizeOptionsInput) {
+  //     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  //   }
+  // }
 
   ngOnInit(){
-    //this.charactersPageFromData();
+    this.charactersPageFromData(this.page);
     this.allCharactersFromData();
   }
 
-  // charactersPageFromData(){
-  //   this.dataService.getCharactersByPage(this.page).subscribe({
-  //     next: characters => this.charactersPage = characters,
-  //     error: err => console.log(err)
-  //   })
-  // }
+  charactersPageFromData(page: number){
+    this.dataService.getCharactersByPage(page).subscribe({
+      next: characters => this.charactersPage = characters,
+      error: err => console.log(err)
+    })
+  }
 
   allCharactersFromData(){
     this.dataService.getAllCharacters().subscribe({
       next: characters => {
         this.characters = characters;
-        this.charactersPage = [...this.characters];
+        this.length = this.characters.length;
       },
       error: err => console.log(err)
     })

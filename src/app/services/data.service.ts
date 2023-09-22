@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  charactersURL = "https://rickandmortyapi.com/api/character/";
+  charactersURL = "https://rickandmortyapi.com/api/character";
   locationsURL = "https://rickandmortyapi.com/api/location";
   episodesURL = "https://rickandmortyapi.com/api/episode";
 
@@ -17,14 +17,15 @@ export class DataService {
   getAllCharacters(): Observable<Character[]>{
     return this.http.get<any>(this.charactersURL).pipe(
       map(data => {
-        const character = data.results;
+        const character = data;
+        console.log(character)
         return character;
       })
     )
   }
 
   getCharactersByPage(page: number): Observable<Character[]>{
-    return this.http.get<any>(this.charactersURL + '?page=' + page).pipe(
+    return this.http.get<any>(this.charactersURL + '/?page=' + page).pipe(
       map(data => {
         const character = data.results;
         return character;
